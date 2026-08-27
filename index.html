@@ -507,8 +507,8 @@
                                     <th class="px-6 py-4 text-left font-bold">Store</th>
                                     <th class="px-6 py-4 text-left font-bold">ID / Nama</th>
                                     <th class="px-6 py-4 text-left font-bold">Tanggal</th>
-                                    <th class="px-6 py-4 text-left font-bold">Out</th>
-                                    <th class="px-6 py-4 text-left font-bold">In</th>
+                                    <th class="px-6 py-4 text-left font-bold">Break</th>
+                                    <th class="px-6 py-4 text-left font-bold">After Break</th>
                                     <th class="px-6 py-4 text-left font-bold">Durasi</th>
                                     <th class="px-6 py-4 text-left font-bold">Telat</th>
                                     <th class="px-6 py-4 text-left font-bold">Status</th>
@@ -1290,7 +1290,7 @@
 
         window.exportHistoryToCSV = function() {
             if(window.filteredHistory.length === 0) return Swal.fire({title:'Kosong', text:'Tidak ada data untuk diekspor pada filter ini', icon:'info', customClass:{popup:'rounded-3xl'}});
-            const csv = [["Store", "ID", "Nama", "Tanggal", "Out", "In", "Durasi (Menit)", "Telat (Menit)", "Status"].join(",")];
+            const csv = [["Store", "ID", "Nama", "Tanggal", "Break", "After Break", "Durasi (Menit)", "Telat (Menit)", "Status"].join(",")];
             window.filteredHistory.forEach(row => {
                 const allowedDur = window.getAllowedDuration(row.out); let lateMin = 0;
                 if(row.duration && !isNaN(row.duration)) lateMin = Math.max(0, parseInt(row.duration) - allowedDur);
